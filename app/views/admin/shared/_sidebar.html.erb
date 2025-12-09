@@ -1,0 +1,54 @@
+<aside class="w-64 bg-gray-900 text-white flex flex-col">
+  <div class="p-6 border-b border-gray-800">
+    <h2 class="text-lg font-bold">Admin Panel</h2>
+    <p class="text-sm text-gray-400">Uber Services</p>
+  </div>
+
+  <nav class="flex-1 p-4">
+    <ul class="space-y-2">
+      <li>
+        <%= link_to admin_root_path,
+            class: "flex items-center gap-3 px-4 py-2 rounded-lg transition-colors #{request.path == admin_root_path ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800'}" do %>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Dashboard
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_users_path,
+            class: "flex items-center gap-3 px-4 py-2 rounded-lg transition-colors #{request.path.start_with?('/admin/users') ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800'}" do %>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          Users
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_payments_path,
+            class: "flex items-center gap-3 px-4 py-2 rounded-lg transition-colors #{request.path.start_with?('/admin/payments') ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800'}" do %>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+          Payments
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_job_requests_path,
+            class: "flex items-center gap-3 px-4 py-2 rounded-lg transition-colors #{request.path.start_with?('/admin/job_requests') ? 'bg-indigo-600 text-white' : 'text-gray-300 hover:bg-gray-800'}" do %>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+          </svg>
+          Job Requests
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="p-4 border-t border-gray-800">
+    <p class="text-xs text-gray-500">Logged in as admin</p>
+  </div>
+</aside>
