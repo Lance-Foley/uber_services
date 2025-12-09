@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: uber-services
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: uber-services-db
+          property: connectionString
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_LOG_TO_STDOUT
+        value: true
+      - key: RAILS_SERVE_STATIC_FILES
+        value: true
+    healthCheckPath: /up
+
+databases:
+  - name: uber-services-db
+    databaseName: uber_services_production
+    plan: starter
