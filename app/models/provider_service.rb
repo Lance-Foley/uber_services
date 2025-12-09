@@ -7,10 +7,13 @@ class ProviderService < ApplicationRecord
 
   # Validations
   validates :pricing_model, presence: true
-  validates :base_price, presence: true, numericality: { greater_than: 0 }
-  validates :hourly_rate, numericality: { greater_than: 0 }, allow_nil: true
-  validates :min_charge, numericality: { greater_than: 0 }, allow_nil: true
+  validates :service_type_id, presence: true
   validates :provider_profile_id, uniqueness: { scope: :service_type_id }
+
+  # Conditional validations based on pricing model
+  validates :base_price, presence: true, numericality: { greater_than: 0 }, if: -> { per_job? || property_size? }
+  validates :hourly_rate, presence: true, numericality: { greater_than: 0 }, if: -> { hourly? }
+  validates :min_charge, numericality: { greater_than: 0 }, allow_nil: true
 
   # Defaults
   attribute :active, default: true
