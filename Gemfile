@@ -28,7 +28,7 @@ gem "omniauth-rails_csrf_protection"
 
 # Payments (Stripe Connect)
 gem "pay", "~> 7.0"
-gem "stripe", "~> 12.0"
+gem "stripe", "~> 18.1"
 
 # View Components
 gem "phlex-rails"
