@@ -27,7 +27,7 @@ gem "omniauth-apple"
 gem "omniauth-rails_csrf_protection"
 
 # Payments (Stripe Connect)
-gem "pay", "~> 7.0"
+gem "pay", "~> 11.4"
 gem "stripe", "~> 12.0"
 
 # View Components
